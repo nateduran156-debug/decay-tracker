@@ -8,7 +8,7 @@ import * as reset from "./reset.js";
 export const data = new SlashCommandBuilder()
   .setName("setme")
   .setDescription("Configure the bot's appearance in this server.")
-  .setDMPermission(false)
+  .setDMPermission(true)
   .addSubcommand(avatar.data)
   .addSubcommand(banner.data)
   .addSubcommand(bio.data)
