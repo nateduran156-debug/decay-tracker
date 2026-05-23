@@ -1,4 +1,4 @@
-import { db, trackList, trackSettings, botConfig } from "@workspace/db";
+import { db, trackList, trackSettings, botConfig } from "../db/index.js";
 import { eq, and } from "drizzle-orm";
 
 export async function addTrack(discordUserId: string, robloxUserId: number, robloxUsername: string) {
@@ -65,8 +65,6 @@ export async function upsertSettings(discordUserId: string, updates: { dmOnJoin?
     await db.insert(trackSettings).values({ discordUserId, dmOnJoin: true, maxTracks: 100, ...updates });
   }
 }
-
-// ── Bot-level configuration ────────────────────────────────────────────────
 
 export async function getBotConfig(key: string): Promise<string | null> {
   try {
